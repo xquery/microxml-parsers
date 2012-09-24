@@ -14,3 +14,7 @@ across a number of languages.
 * Java microxml.java
 
 
+Goto http://www.w3.org/community/microxml/ for more about MicroXML.
+
+Jim Fuller
+jim.fuller@webcomposite.com
