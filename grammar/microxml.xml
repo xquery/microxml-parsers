@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was generated on Mon Sep 24, 2012 10:35 (UTC+02) by REx v5.16 which is Copyright (c) 1979-2012 by Gunther Rademacher <grd@gmx.net> -->
+<!-- REx command line: microxml.ebnf -tree -xml -backtrack -->
+<g:grammar xmlns:g="http://www.w3.org/2001/03/XPath/grammar">
+  <g:production name="document">
+    <g:optional>
+      <g:ref if="byteOrderMark" queued="1" name="byteOrderMark"/>
+    </g:optional>
+    <g:zeroOrMore>
+      <g:choice ifnot="&lt;" queued="1">
+        <g:ref if="comment" queued="1" name="comment"/>
+        <g:ref default="" queued="1" name="s"/>
+      </g:choice>
+    </g:zeroOrMore>
+    <g:ref queued="1" name="element"/>
+    <g:zeroOrMore>
+      <g:choice ifnot="END" queued="1">
+        <g:ref if="comment" queued="1" name="comment"/>
+        <g:ref default="" queued="1" name="s"/>
+      </g:choice>
+    </g:zeroOrMore>
+  </g:production>
+  <g:production queued="1" name="element">
+    <g:choice LL1-conflict="&lt;" LL2-conflict="&lt;~name" LL3-conflict="&lt;~name~s" queued="1">
+      <g:sequence if="&lt;~name~&gt;" queued="1+">
+        <g:ref queued="1+" name="startTag"/>
+        <g:ref name="content"/>
+        <g:ref name="endTag"/>
+      </g:sequence>
+      <g:ref default="" queued="1+" name="emptyElementTag"/>
+    </g:choice>
+  </g:production>
+  <g:production queued="1+" name="startTag">
+    <g:string queued="1+">&lt;</g:string>
+    <g:ref name="name"/>
+    <g:ref name="attributeList"/>
+    <g:zeroOrMore>
+      <g:ref if="s" queued="1" name="s"/>
+    </g:zeroOrMore>
+    <g:string queued="1">&gt;</g:string>
+  </g:production>
+  <g:production name="endTag">
+    <g:string>&lt;/</g:string>
+    <g:ref name="name"/>
+    <g:zeroOrMore>
+      <g:ref if="s" queued="1" name="s"/>
+    </g:zeroOrMore>
+    <g:string queued="1">&gt;</g:string>
+  </g:production>
+  <g:production name="content">
+    <g:zeroOrMore>
+      <g:choice ifnot="&lt;/" queued="1">
+        <g:ref if="&lt;" queued="1" name="element"/>
+        <g:ref if="comment" queued="1" name="comment"/>
+        <g:ref if="dataChar" queued="1" name="dataChar"/>
+        <g:ref default="" queued="1" name="charRef"/>
+      </g:choice>
+    </g:zeroOrMore>
+  </g:production>
+  <g:production queued="1+" name="emptyElementTag">
+    <g:string queued="1+">&lt;</g:string>
+    <g:ref name="name"/>
+    <g:ref name="attributeList"/>
+    <g:zeroOrMore>
+      <g:ref if="s" queued="1" name="s"/>
+    </g:zeroOrMore>
+    <g:string queued="1">/&gt;</g:string>
+  </g:production>
+  <g:production name="attributeList">
+    <g:zeroOrMore LL1-conflict="s" LL2-conflict="s~s" LL3-conflict="s~s~s">
+      <g:oneOrMore if="s~attributeName s~s~attributeName">
+        <g:ref if="s" queued="1+" name="s"/>
+      </g:oneOrMore>
+      <g:ref queued="1" name="attribute"/>
+    </g:zeroOrMore>
+  </g:production>
+  <g:production queued="1" name="attribute">
+    <g:ref queued="1" name="attributeName"/>
+    <g:zeroOrMore>
+      <g:ref if="s" queued="1" name="s"/>
+    </g:zeroOrMore>
+    <g:string queued="1">=</g:string>
+    <g:zeroOrMore>
+      <g:ref if="s" queued="1" name="s"/>
+    </g:zeroOrMore>
+    <g:ref queued="1" name="attributeValue"/>
+  </g:production>
+  <?TOKENS?>
+  <g:production name="byteOrderMark">
+    <g:charCode value="FEFF"/>
+  </g:production>
+  <g:production name="attributeValue">
+    <g:choice>
+      <g:sequence>
+        <g:string>&quot;</g:string>
+        <g:zeroOrMore>
+          <g:choice>
+            <g:subtract>
+              <g:ref name="attributeValueChar"/>
+              <g:string>&quot;</g:string>
+            </g:subtract>
+            <g:ref name="charRef"/>
+          </g:choice>
+        </g:zeroOrMore>
+        <g:string>&quot;</g:string>
+      </g:sequence>
+      <g:sequence>
+        <g:string>'</g:string>
+        <g:zeroOrMore>
+          <g:choice>
+            <g:subtract>
+              <g:ref name="attributeValueChar"/>
+              <g:string>'</g:string>
+            </g:subtract>
+            <g:ref name="charRef"/>
+          </g:choice>
+        </g:zeroOrMore>
+        <g:string>'</g:string>
+      </g:sequence>
+    </g:choice>
+  </g:production>
+  <g:production name="attributeValueChar">
+    <g:subtract>
+      <g:ref name="char"/>
+      <g:choice>
+        <g:string>&lt;</g:string>
+        <g:string>&gt;</g:string>
+        <g:string>&amp;</g:string>
+      </g:choice>
+    </g:subtract>
+  </g:production>
+  <g:production name="attributeName">
+    <g:subtract>
+      <g:ref name="name"/>
+      <g:string>xmlns</g:string>
+    </g:subtract>
+  </g:production>
+  <g:production name="comment">
+    <g:string>&lt;!--</g:string>
+    <g:zeroOrMore>
+      <g:choice>
+        <g:subtract>
+          <g:ref name="char"/>
+          <g:string>-</g:string>
+        </g:subtract>
+        <g:sequence>
+          <g:string>-</g:string>
+          <g:subtract>
+            <g:ref name="char"/>
+            <g:string>-</g:string>
+          </g:subtract>
+        </g:sequence>
+      </g:choice>
+    </g:zeroOrMore>
+    <g:string>--&gt;</g:string>
+  </g:production>
+  <g:production name="charRef">
+    <g:choice>
+      <g:ref name="numericCharRef"/>
+      <g:ref name="namedCharRef"/>
+    </g:choice>
+  </g:production>
+  <g:production name="numericCharRef">
+    <g:string>&amp;#x</g:string>
+    <g:ref name="charNumber"/>
+    <g:string>;</g:string>
+  </g:production>
+  <g:production name="dataChar">
+    <g:subtract>
+      <g:ref name="char"/>
+      <g:choice>
+        <g:string>&lt;</g:string>
+        <g:string>&amp;</g:string>
+        <g:string>&gt;</g:string>
+      </g:choice>
+    </g:subtract>
+  </g:production>
+  <g:production name="charNumber">
+    <g:oneOrMore>
+      <g:charClass>
+        <g:charRange minChar="0" maxChar="9"/>
+        <g:charRange minChar="a" maxChar="f"/>
+        <g:charRange minChar="A" maxChar="F"/>
+      </g:charClass>
+    </g:oneOrMore>
+  </g:production>
+  <g:production name="namedCharRef">
+    <g:string>&amp;</g:string>
+    <g:ref name="charName"/>
+    <g:string>;</g:string>
+  </g:production>
+  <g:production name="charName">
+    <g:choice>
+      <g:string>amp</g:string>
+      <g:string>lt</g:string>
+      <g:string>gt</g:string>
+      <g:string>quot</g:string>
+      <g:string>apos</g:string>
+    </g:choice>
+  </g:production>
+  <g:production name="name">
+    <g:ref name="nameStartChar"/>
+    <g:zeroOrMore>
+      <g:ref name="nameChar"/>
+    </g:zeroOrMore>
+  </g:production>
+  <g:production name="nameStartChar">
+    <g:choice>
+      <g:charClass>
+        <g:charRange minChar="A" maxChar="Z"/>
+      </g:charClass>
+      <g:charClass>
+        <g:charRange minChar="a" maxChar="z"/>
+      </g:charClass>
+      <g:string>_</g:string>
+      <g:charClass>
+        <g:charCodeRange minValue="C0" maxValue="D6"/>
+      </g:charClass>
+      <g:charClass>
+        <g:charCodeRange minValue="D8" maxValue="F6"/>
+      </g:charClass>
+      <g:charClass>
+        <g:charCodeRange minValue="F8" maxValue="2FF"/>
+      </g:charClass>
+      <g:charClass>
+        <g:charCodeRange minValue="370" maxValue="37D"/>
+      </g:charClass>
+      <g:charClass>
+        <g:charCodeRange minValue="37F" maxValue="1FFF"/>
+      </g:charClass>
+      <g:charClass>
+        <g:charCodeRange minValue="200C" maxValue="200D"/>
+      </g:charClass>
+      <g:charClass>
+        <g:charCodeRange minValue="2070" maxValue="218F"/>
+      </g:charClass>
+      <g:charClass>
+        <g:charCodeRange minValue="2C00" maxValue="2FEF"/>
+      </g:charClass>
+      <g:charClass>
+        <g:charCodeRange minValue="3001" maxValue="D7FF"/>
+      </g:charClass>
+      <g:subtract>
+        <g:charClass>
+          <g:charCodeRange minValue="F900" maxValue="EFFFF"/>
+        </g:charClass>
+        <g:ref name="nonCharacterCodePoint"/>
+      </g:subtract>
+    </g:choice>
+  </g:production>
+  <g:production name="nameChar">
+    <g:choice>
+      <g:ref name="nameStartChar"/>
+      <g:charClass>
+        <g:charRange minChar="0" maxChar="9"/>
+      </g:charClass>
+      <g:string>-</g:string>
+      <g:string>.</g:string>
+      <g:charCode value="B7"/>
+      <g:charClass>
+        <g:charCodeRange minValue="300" maxValue="36F"/>
+      </g:charClass>
+      <g:charClass>
+        <g:charCodeRange minValue="203F" maxValue="2040"/>
+      </g:charClass>
+    </g:choice>
+  </g:production>
+  <g:production name="char">
+    <g:choice>
+      <g:ref name="s"/>
+      <g:subtract>
+        <g:charClass>
+          <g:charCodeRange minValue="0" maxValue="10FFFF"/>
+        </g:charClass>
+        <g:ref name="forbiddenCodePoint"/>
+      </g:subtract>
+    </g:choice>
+  </g:production>
+  <g:production name="s">
+    <g:charClass>
+      <g:charCode value="9"/>
+      <g:charCode value="A"/>
+      <g:charCode value="20"/>
+    </g:charClass>
+  </g:production>
+  <g:production name="forbiddenCodePoint">
+    <g:choice>
+      <g:ref name="controlCodePoint"/>
+      <g:ref name="surrogateCodePoint"/>
+      <g:ref name="nonCharacterCodePoint"/>
+    </g:choice>
+  </g:production>
+  <g:production name="controlCodePoint">
+    <g:charClass>
+      <g:charCodeRange minValue="0" maxValue="1"/>
+      <g:char>F</g:char>
+      <g:charCode value="7"/>
+      <g:charRange minChar="F" maxChar="#"/>
+      <g:char>9</g:char>
+      <g:char>F</g:char>
+    </g:charClass>
+  </g:production>
+  <g:production name="surrogateCodePoint">
+    <g:charClass>
+      <g:charCodeRange minValue="D800" maxValue="DFFF"/>
+    </g:charClass>
+  </g:production>
+  <g:production name="nonCharacterCodePoint">
+    <g:charClass>
+      <g:charCodeRange minValue="FDD0" maxValue="FDEF"/>
+      <g:charCodeRange minValue="FFFE" maxValue="FFFF"/>
+      <g:charCodeRange minValue="1FFFE" maxValue="1FFFF"/>
+      <g:charCodeRange minValue="2FFFE" maxValue="2FFFF"/>
+      <g:charCodeRange minValue="3FFFE" maxValue="3FFFF"/>
+      <g:charCodeRange minValue="4FFFE" maxValue="4FFFF"/>
+      <g:charCodeRange minValue="5FFFE" maxValue="5FFFF"/>
+      <g:charCodeRange minValue="6FFFE" maxValue="6FFFF"/>
+      <g:charCodeRange minValue="7FFFE" maxValue="7FFFF"/>
+      <g:charCodeRange minValue="8FFFE" maxValue="8FFFF"/>
+      <g:charCodeRange minValue="9FFFE" maxValue="9FFFF"/>
+      <g:charCodeRange minValue="AFFFE" maxValue="AFFFF"/>
+      <g:charCodeRange minValue="BFFFE" maxValue="BFFFF"/>
+      <g:charCodeRange minValue="CFFFE" maxValue="CFFFF"/>
+      <g:charCodeRange minValue="DFFFE" maxValue="DFFFF"/>
+      <g:charCodeRange minValue="EFFFE" maxValue="EFFFF"/>
+      <g:charCodeRange minValue="FFFFE" maxValue="FFFFF"/>
+      <g:charCodeRange minValue="10FFFE" maxValue="10FFFF"/>
+    </g:charClass>
+  </g:production>
+</g:grammar>
