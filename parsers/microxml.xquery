@@ -1,7 +1,7 @@
 xquery version "1.0" encoding "UTF-8";
 
-(: This file was generated on Mon Sep 24, 2012 09:43 (UTC+02) by REx v5.16 which is Copyright (c) 1979-2012 by Gunther Rademacher <grd@gmx.net> :)
-(: REx command line: microxml.ebnf -backtrack -xquery -tree :)
+(: This file was generated on Thu Sep 27, 2012 11:24 (UTC+02) by REx v5.16 which is Copyright (c) 1979-2012 by Gunther Rademacher <grd@gmx.net> :)
+(: REx command line: microxml.ebnf -ll 2 -tree -xquery :)
 
 (:~
  : The parser that was generated for the microxml grammar.
@@ -14,11 +14,10 @@ declare default function namespace "http://www.w3.org/2005/xpath-functions";
  :)
 declare variable $p:MAP0 as xs:integer+ :=
 (
-  0, 0, 32, 32, 32, 32, 32, 0, 32, 1, 1, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
-  32, 1, 2, 3, 4, 32, 32, 5, 6, 32, 32, 32, 32, 32, 7, 8, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 32, 12, 13, 14, 15,
-  32, 32, 16, 16, 16, 16, 16, 17, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 32,
-  32, 32, 32, 18, 32, 19, 16, 16, 16, 16, 16, 20, 18, 18, 18, 18, 21, 22, 23, 24, 25, 26, 18, 27, 28, 29, 18, 18, 30,
-  18, 18, 32, 32, 32, 32, 32
+  32, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 4, 5, 6, 6, 7,
+  8, 6, 6, 6, 6, 6, 9, 10, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 13, 14, 15, 16, 6, 6, 17, 17, 17, 17, 17, 17,
+  18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 6, 6, 6, 6, 18, 6, 19, 17, 17, 17, 17,
+  17, 20, 18, 18, 18, 18, 21, 22, 23, 24, 25, 26, 18, 27, 28, 29, 18, 18, 30, 18, 18, 6, 6, 6, 6, 0
 );
 
 (:~
@@ -30,19 +29,19 @@ declare variable $p:MAP1 as xs:integer+ :=
   215, 213, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214,
   214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214,
   214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214,
-  214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 247, 266, 283, 299, 314, 352, 368,
-  384, 266, 266, 266, 258, 336, 328, 336, 328, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336,
-  336, 336, 411, 411, 411, 411, 411, 411, 411, 321, 336, 336, 336, 336, 336, 336, 336, 336, 395, 266, 266, 267, 265,
-  266, 266, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 266, 266, 266,
-  266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266, 266,
-  266, 266, 266, 266, 266, 266, 335, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336,
-  336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 336, 266, 0, 0, 32, 32, 32, 32, 32, 0, 32,
-  1, 1, 32, 32, 32, 32, 32, 32, 32, 8, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 8, 1, 2, 3, 4,
-  32, 32, 5, 6, 32, 32, 32, 32, 32, 7, 8, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 32, 12, 13, 14, 15, 32, 16, 16, 16,
-  16, 16, 17, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 32, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18,
-  18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 32, 32, 32, 32, 18, 32, 19, 16, 16, 16, 16, 16, 20,
-  18, 18, 18, 18, 21, 22, 23, 24, 25, 26, 18, 27, 28, 29, 18, 18, 30, 18, 18, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
-  32, 32, 18, 18, 32, 32, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8
+  214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 214, 247, 258, 274, 290, 344, 351, 367,
+  383, 258, 258, 327, 319, 430, 422, 430, 422, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430,
+  430, 430, 399, 399, 399, 399, 399, 399, 399, 415, 430, 430, 430, 430, 430, 430, 430, 430, 305, 327, 327, 328, 326,
+  327, 327, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 327, 327, 327,
+  327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327, 327,
+  327, 327, 327, 327, 327, 327, 429, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430,
+  430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 430, 327, 32, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 4, 5, 6, 6, 7, 8, 6, 6, 6, 6, 6, 9, 10, 11, 12, 12, 12, 12, 12,
+  12, 12, 12, 12, 12, 6, 13, 14, 15, 16, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 18, 18, 6, 6, 6, 6, 6, 6, 6, 10, 6, 6, 6,
+  6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 10, 6, 17, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 6,
+  6, 6, 6, 18, 6, 19, 17, 17, 17, 17, 17, 20, 18, 18, 18, 18, 21, 22, 23, 24, 25, 26, 18, 27, 28, 29, 18, 18, 30, 18,
+  18, 6, 6, 6, 6, 0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 18, 18, 18, 18, 18, 18, 18, 18, 18,
+  18, 18, 18, 18, 18, 6, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18
 );
 
 (:~
@@ -52,8 +51,8 @@ declare variable $p:MAP2 as xs:integer+ :=
 (
   57344, 63744, 65008, 65279, 65280, 65536, 131072, 196608, 262144, 327680, 393216, 458752, 524288, 589824, 655360,
   720896, 786432, 851968, 917504, 983040, 1048576, 63743, 64975, 65278, 65279, 65533, 131069, 196605, 262141, 327677,
-  393213, 458749, 524285, 589821, 655357, 720893, 786429, 851965, 917501, 983037, 1048573, 1114109, 32, 18, 18, 31, 18,
-  18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 32, 32
+  393213, 458749, 524285, 589821, 655357, 720893, 786429, 851965, 917501, 983037, 1048573, 1114109, 6, 18, 18, 31, 18,
+  18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 6, 6
 );
 
 (:~
@@ -61,7 +60,7 @@ declare variable $p:MAP2 as xs:integer+ :=
  :)
 declare variable $p:INITIAL as xs:integer+ :=
 (
-  1, 2, 3, 4, 5, 6, 7, 264, 9, 10, 11, 12, 13
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
 );
 
 (:~
@@ -69,43 +68,42 @@ declare variable $p:INITIAL as xs:integer+ :=
  :)
 declare variable $p:TRANSITION as xs:integer+ :=
 (
-  829, 829, 829, 829, 829, 829, 829, 829, 829, 829, 829, 829, 829, 829, 829, 829, 663, 667, 828, 829, 829, 829, 829,
-  699, 700, 829, 829, 829, 829, 829, 829, 829, 829, 624, 528, 829, 829, 829, 829, 699, 700, 829, 829, 829, 829, 829,
-  829, 829, 865, 636, 828, 829, 829, 829, 829, 699, 700, 829, 829, 829, 829, 829, 829, 829, 829, 624, 543, 551, 829,
-  829, 829, 699, 700, 829, 829, 829, 829, 829, 829, 829, 829, 588, 561, 829, 829, 829, 829, 699, 700, 829, 829, 829,
-  829, 829, 829, 829, 826, 624, 572, 829, 829, 829, 829, 699, 700, 829, 829, 829, 829, 829, 829, 829, 829, 731, 584,
-  596, 830, 700, 829, 608, 620, 829, 829, 829, 829, 829, 829, 829, 829, 731, 584, 754, 830, 829, 829, 632, 700, 829,
-  829, 829, 829, 829, 829, 829, 576, 915, 951, 829, 829, 829, 829, 699, 700, 829, 829, 829, 829, 829, 829, 829, 829,
-  731, 584, 754, 830, 908, 727, 644, 700, 829, 829, 829, 829, 829, 829, 829, 829, 868, 675, 754, 830, 908, 727, 692,
-  829, 829, 829, 829, 829, 829, 829, 829, 829, 624, 828, 829, 829, 612, 822, 945, 700, 829, 829, 829, 829, 829, 829,
-  829, 535, 709, 829, 829, 829, 829, 829, 699, 700, 829, 829, 829, 829, 829, 829, 829, 564, 624, 828, 829, 829, 829,
-  829, 699, 700, 829, 829, 829, 829, 829, 829, 829, 553, 722, 775, 829, 829, 829, 829, 699, 739, 829, 829, 829, 829,
-  829, 829, 829, 752, 780, 584, 754, 830, 908, 727, 644, 700, 829, 829, 829, 829, 829, 829, 829, 752, 684, 675, 754,
-  830, 908, 727, 692, 829, 829, 829, 829, 829, 829, 829, 829, 752, 780, 584, 754, 830, 829, 829, 632, 700, 829, 829,
-  829, 829, 829, 829, 829, 752, 780, 762, 770, 830, 908, 727, 644, 700, 829, 829, 829, 829, 829, 829, 829, 752, 780,
-  788, 859, 830, 829, 829, 632, 700, 829, 829, 829, 829, 829, 829, 829, 752, 780, 788, 796, 830, 829, 829, 632, 700,
-  829, 829, 829, 829, 829, 829, 829, 752, 780, 810, 657, 838, 829, 829, 632, 700, 829, 829, 829, 829, 829, 829, 829,
-  752, 780, 584, 754, 701, 829, 829, 632, 700, 829, 829, 829, 829, 829, 829, 829, 752, 780, 584, 754, 830, 714, 852,
-  632, 700, 829, 829, 829, 829, 829, 829, 829, 752, 780, 584, 938, 876, 885, 600, 632, 700, 829, 829, 829, 829, 829,
-  829, 829, 752, 780, 893, 901, 830, 829, 829, 632, 700, 829, 829, 829, 829, 829, 829, 829, 752, 780, 584, 754, 830,
-  829, 829, 923, 700, 829, 829, 829, 829, 829, 829, 829, 752, 780, 584, 882, 651, 829, 829, 632, 700, 829, 829, 829,
-  829, 829, 829, 829, 752, 780, 584, 844, 802, 829, 829, 632, 700, 829, 829, 829, 829, 829, 829, 829, 931, 744, 584,
-  959, 680, 829, 829, 632, 700, 829, 829, 829, 829, 829, 829, 829, 752, 816, 584, 754, 830, 829, 829, 632, 700, 829,
-  829, 829, 829, 829, 829, 829, 829, 624, 828, 829, 829, 829, 829, 699, 700, 829, 829, 829, 829, 829, 829, 829, 17, 0,
-  0, 0, 27, 0, 27, 0, 15, 0, 0, 0, 0, 0, 21, 17, 0, 0, 0, 0, 28, 0, 32, 36, 0, 0, 0, 0, 0, 0, 0, 1920, 0, 25, 0, 0, 0,
-  0, 0, 0, 0, 1792, 0, 0, 512, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 17, 658, 658, 0, 0, 0, 0, 0, 22, 0, 0, 24, 0, 658, 41,
-  0, 0, 0, 0, 0, 55, 0, 0, 0, 658, 65, 0, 0, 0, 0, 0, 0, 896, 0, 0, 0, 66, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 16, 658, 58,
-  0, 0, 0, 0, 0, 0, 1024, 0, 0, 512, 658, 58, 59, 0, 61, 0, 63, 0, 50, 0, 0, 0, 55, 0, 658, 0, 0, 43, 0, 0, 0, 1280,
-  1280, 1280, 1280, 1280, 1280, 1024, 0, 0, 16, 0, 658, 658, 0, 0, 0, 0, 0, 52, 0, 0, 0, 658, 0, 1166, 0, 0, 658, 0, 59,
-  0, 61, 0, 63, 0, 58, 0, 0, 0, 0, 0, 0, 0, 697, 1557, 0, 1557, 0, 1559, 0, 0, 0, 60, 0, 30, 0, 0, 0, 1920, 0, 1920, 0,
-  0, 0, 0, 63, 0, 0, 0, 0, 1024, 1166, 0, 16, 58, 768, 0, 0, 0, 0, 0, 0, 659, 1024, 1166, 0, 16, 1166, 0, 0, 658, 0, 0,
-  0, 0, 0, 0, 17, 658, 658, 0, 0, 29, 0, 33, 37, 658, 0, 0, 0, 0, 0, 0, 1408, 0, 0, 0, 0, 658, 1024, 1166, 0, 16, 17,
-  658, 658, 0, 0, 30, 0, 34, 38, 680, 0, 0, 0, 0, 0, 0, 51, 0, 0, 0, 56, 658, 17, 658, 666, 0, 0, 0, 0, 0, 384, 658,
-  1024, 1166, 0, 16, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 658, 48, 0, 0, 0, 53, 0, 0, 658, 0, 0, 0, 0, 46, 0, 62, 0,
-  34, 0, 0, 64, 0, 38, 658, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 1166, 0, 0, 49, 0, 0, 0, 54, 0, 0, 658, 0, 0, 0, 45, 0,
-  0, 0, 0, 50, 17, 658, 658, 0, 0, 31, 0, 35, 39, 658, 0, 0, 0, 0, 0, 0, 59, 0, 0, 0, 0, 61, 0, 20, 0, 20, 1024, 0,
-  1664, 16, 18, 58, 0, 45, 0, 50, 0, 55, 1166, 0, 0, 659, 0, 0, 0, 0, 658, 0, 0, 44, 0, 0, 0, 58, 896, 0, 16, 0, 17, 0,
-  0, 0, 0, 0, 1664, 0, 0, 658, 0, 42, 0, 0, 0, 47
+  550, 550, 550, 550, 550, 550, 550, 550, 550, 550, 550, 550, 550, 550, 550, 550, 562, 534, 617, 550, 550, 550, 550,
+  550, 550, 550, 550, 550, 550, 550, 550, 550, 562, 540, 528, 550, 550, 550, 550, 644, 645, 550, 550, 550, 550, 550,
+  550, 550, 550, 572, 548, 559, 550, 550, 550, 644, 645, 550, 550, 550, 550, 550, 550, 550, 671, 572, 570, 550, 550,
+  550, 550, 644, 645, 550, 550, 550, 550, 550, 550, 550, 550, 572, 548, 580, 550, 550, 550, 644, 645, 550, 550, 550,
+  550, 550, 550, 550, 550, 572, 548, 550, 550, 550, 550, 644, 645, 550, 550, 550, 550, 550, 550, 550, 550, 551, 593,
+  550, 550, 550, 550, 644, 645, 550, 550, 550, 550, 550, 550, 550, 603, 572, 615, 550, 550, 550, 550, 644, 645, 550,
+  550, 550, 550, 550, 550, 550, 550, 572, 625, 688, 550, 739, 550, 630, 771, 550, 550, 550, 550, 550, 550, 550, 550,
+  572, 625, 717, 550, 719, 550, 738, 645, 550, 550, 550, 550, 550, 550, 550, 550, 824, 638, 641, 550, 550, 550, 644,
+  645, 550, 550, 550, 550, 550, 550, 550, 550, 572, 625, 717, 550, 907, 838, 585, 653, 550, 550, 550, 550, 550, 550,
+  550, 550, 572, 548, 550, 550, 550, 666, 607, 679, 550, 550, 550, 550, 550, 550, 550, 684, 784, 550, 550, 550, 550,
+  550, 644, 645, 550, 550, 550, 550, 550, 550, 550, 658, 572, 548, 550, 550, 550, 550, 644, 645, 550, 550, 550, 550,
+  550, 550, 550, 809, 696, 595, 550, 550, 550, 550, 644, 919, 550, 550, 550, 550, 550, 550, 550, 714, 720, 625, 717,
+  550, 907, 838, 585, 653, 550, 550, 550, 550, 550, 550, 550, 714, 720, 625, 717, 550, 719, 550, 738, 645, 550, 550,
+  550, 550, 550, 550, 550, 714, 720, 625, 728, 550, 907, 838, 585, 653, 550, 550, 550, 550, 550, 550, 550, 714, 720,
+  625, 747, 550, 719, 550, 738, 645, 550, 550, 550, 550, 550, 550, 550, 714, 720, 625, 761, 550, 719, 550, 738, 645,
+  550, 550, 550, 550, 550, 550, 550, 714, 720, 779, 717, 792, 805, 550, 738, 645, 550, 550, 550, 550, 550, 550, 550,
+  714, 720, 625, 717, 550, 702, 550, 738, 645, 550, 550, 550, 550, 550, 550, 550, 714, 720, 625, 717, 550, 851, 817,
+  832, 645, 550, 550, 550, 550, 550, 550, 550, 714, 720, 625, 717, 846, 859, 866, 874, 645, 550, 550, 550, 550, 550,
+  550, 550, 714, 720, 625, 888, 550, 719, 550, 738, 645, 550, 550, 550, 550, 550, 550, 550, 714, 720, 625, 717, 550,
+  719, 550, 706, 902, 550, 550, 550, 550, 550, 550, 550, 714, 720, 625, 717, 864, 915, 550, 738, 645, 550, 550, 550,
+  550, 550, 550, 550, 714, 720, 625, 717, 753, 767, 550, 738, 645, 550, 550, 550, 550, 550, 550, 550, 927, 894, 625,
+  930, 797, 719, 550, 738, 645, 550, 550, 550, 550, 550, 550, 550, 714, 880, 625, 717, 550, 719, 550, 738, 645, 550,
+  550, 550, 550, 550, 550, 550, 550, 734, 550, 550, 550, 550, 550, 550, 550, 550, 550, 550, 550, 550, 550, 550, 17, 18,
+  0, 0, 0, 0, 1175, 0, 0, 1175, 1175, 1175, 1175, 0, 0, 1175, 1175, 1175, 1175, 896, 17, 18, 0, 0, 0, 0, 0, 0, 0, 0, 26,
+  31, 0, 31, 0, 0, 0, 0, 0, 0, 1175, 1175, 384, 18, 0, 0, 0, 0, 0, 0, 0, 896, 0, 32, 0, 36, 40, 0, 0, 0, 0, 531, 62, 63,
+  0, 28, 29, 0, 0, 0, 0, 0, 0, 0, 1408, 18, 0, 0, 0, 0, 0, 18, 0, 0, 62, 768, 0, 17, 384, 0, 0, 0, 0, 0, 0, 1175, 0, 17,
+  18, 531, 531, 1045, 0, 0, 0, 0, 531, 69, 0, 0, 17, 18, 0, 0, 0, 1664, 0, 0, 0, 0, 0, 62, 0, 0, 0, 65, 0, 67, 0, 62, 0,
+  0, 0, 0, 1792, 0, 0, 1792, 768, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 17, 0, 17, 0, 18, 0, 62, 0, 0, 0, 22, 0, 0, 0, 0, 0,
+  531, 45, 0, 1920, 1920, 1920, 0, 0, 1920, 0, 0, 0, 573, 0, 0, 0, 0, 19, 62, 0, 49, 0, 531, 1045, 0, 0, 0, 0, 0, 531,
+  0, 0, 0, 0, 896, 0, 33, 0, 37, 41, 531, 0, 0, 0, 1280, 0, 0, 0, 0, 531, 62, 0, 0, 0, 0, 34, 0, 38, 42, 531, 0, 0, 50,
+  0, 0, 0, 55, 0, 0, 34, 0, 38, 42, 556, 0, 0, 60, 531, 0, 0, 0, 0, 70, 0, 0, 0, 17, 18, 531, 542, 1045, 0, 0, 0, 25,
+  1561, 0, 1561, 1563, 47, 0, 0, 0, 52, 0, 0, 0, 51, 0, 0, 0, 56, 57, 0, 0, 531, 0, 0, 0, 0, 0, 1920, 0, 0, 0, 34, 0, 0,
+  66, 0, 38, 0, 24, 24, 0, 0, 24, 0, 896, 0, 68, 0, 42, 531, 62, 0, 0, 65, 0, 0, 0, 0, 67, 48, 0, 0, 0, 53, 0, 0, 0,
+  531, 0, 0, 0, 64, 58, 0, 0, 531, 0, 0, 49, 0, 0, 0, 54, 0, 0, 0, 0, 59, 0, 0, 0, 531, 62, 0, 0, 531, 0, 0, 0, 256,
+  896, 0, 35, 0, 39, 43, 531, 0, 0, 532, 0, 0, 0, 0, 896, 0, 54, 0, 59, 62, 0, 0, 0, 531, 0, 63, 0, 0, 0, 59, 0, 531, 0,
+  0, 0, 0, 62, 640, 0, 0, 0, 532, 1045, 0, 0, 0, 0, 0, 531, 0, 46
 );
 
 (:~
@@ -113,8 +111,9 @@ declare variable $p:TRANSITION as xs:integer+ :=
  :)
 declare variable $p:EXPECTED as xs:integer+ :=
 (
-  17, 21, 25, 29, 49, 46, 37, 40, 32, 33, 39, 41, 32, 32, 38, 32, 45, 256, 4096, 520, 528, 1536, 8704, 16896, 544, 2592,
-  17920, 2596, 17936, 6368, 256, 4096, 8, 8, 8, 8, 16, 8, 16, 32, 64, 64, 64, 8, 8, 32, 32, 64, 4128, 8, 16, 16, 1024
+  18, 24, 28, 32, 50, 20, 45, 36, 39, 48, 49, 38, 40, 48, 48, 37, 48, 44, 4, 8, 128, 4096, 256, 1024, 8192, 16384, 260,
+  8448, 16640, 17408, 17416, 784, 2320, 17664, 2322, 6256, 4, 8, 16, 32, 32, 32, 4, 4, 16, 16, 32, 4112, 4, 4, 4, 4, 8,
+  8
 );
 
 (:~
@@ -123,7 +122,6 @@ declare variable $p:EXPECTED as xs:integer+ :=
 declare variable $p:TOKEN as xs:string+ :=
 (
   "(0)",
-  "END",
   "byteOrderMark",
   "attributeValue",
   "attributeName",
@@ -132,6 +130,7 @@ declare variable $p:TOKEN as xs:string+ :=
   "dataChar",
   "name",
   "s",
+  "eof",
   "'/>'",
   "'<'",
   "'</'",
@@ -264,7 +263,7 @@ declare function p:expected-token-set($state as xs:integer) as xs:string*
 {
   if ($state > 0) then
     for $t in 0 to 0
-    let $i0 := $t * 66 + $state - 1
+    let $i0 := $t * 70 + $state - 1
     let $i1 := $i0 idiv 4
     return p:token((), $p:EXPECTED[$i0 mod 4 + $p:EXPECTED[$i1 + 1] + 1], $t * 32 + 1)
   else
@@ -351,40 +350,16 @@ declare variable $p:b2 := 8;
 declare variable $p:e2 := 9;
 
 (:~
- : The index of the parser state for accessing the code of the
- : level-3-lookahead token.
- :)
-declare variable $p:l3 := 10;
-
-(:~
- : The index of the parser state for accessing the position in the
- : input string of the begin of the level-3-lookahead token.
- :)
-declare variable $p:b3 := 11;
-
-(:~
- : The index of the parser state for accessing the position in the
- : input string of the end of the level-3-lookahead token.
- :)
-declare variable $p:e3 := 12;
-
-(:~
  : The index of the parser state for accessing the token code that
  : was expected when an error was found.
  :)
-declare variable $p:error := 13;
-
-(:~
- : The index of the parser state for accessing the memoization
- : of backtracking results.
- :)
-declare variable $p:memo := 14;
+declare variable $p:error := 10;
 
 (:~
  : The index of the parser state that points to the first entry
  : used for collecting action results.
  :)
-declare variable $p:result := 15;
+declare variable $p:result := 11;
 
 (:~
  : Create a textual error message from a parsing error.
@@ -452,10 +427,10 @@ declare function p:shift($code as xs:integer, $input as xs:string, $state as ite
     $state
   else if ($state[$p:l1] = $code) then
   (
-    subsequence($state, $p:l1, $p:e3 - $p:l1 + 1),
+    subsequence($state, $p:l1, $p:e2 - $p:l1 + 1),
     0,
-    $state[$p:e3],
-    subsequence($state, $p:e3),
+    $state[$p:e2],
+    subsequence($state, $p:e2),
     if ($state[$p:e0] != $state[$p:b1]) then
       text {substring($input, $state[$p:e0], $state[$p:b1] - $state[$p:e0])}
     else
@@ -473,17 +448,12 @@ declare function p:shift($code as xs:integer, $input as xs:string, $state as ite
     subsequence($state, 1, $p:error - 1),
     element error
     {
-      if ($state[$p:e1] < $state[$p:memo]/@e) then
-        $state[$p:memo]/@*
+      attribute b {$state[$p:b1]},
+      attribute e {$state[$p:e1]},
+      if ($state[$p:l1] < 0) then
+        attribute s {- $state[$p:l1]}
       else
-      (
-        attribute b {$state[$p:b1]},
-        attribute e {$state[$p:e1]},
-        if ($state[$p:l1] < 0) then
-          attribute s {- $state[$p:l1]}
-        else
-          (attribute o {$state[$p:l1]}, attribute x {$code})
-      )
+        (attribute o {$state[$p:l1]}, attribute x {$code})
     },
     subsequence($state, $p:error + 1)
   )
@@ -533,32 +503,7 @@ declare function p:lookahead2($set as xs:integer, $input as xs:string, $state as
     $match[1] * 32 + $state[$p:l1],
     subsequence($state, $p:lk + 1, $p:l2 - $p:lk - 1),
     $match,
-    0, $match[3], 0,
-    subsequence($state, $p:e3 + 1)
-  )
-};
-
-(:~
- : Lookahead one token on level 3 with whitespace skipping.
- :
- : @param $set the code of the DFA entry state for the set of valid tokens.
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:lookahead3($set as xs:integer, $input as xs:string, $state as item()+) as item()+
-{
-  let $match :=
-    if ($state[$p:l3] != 0) then
-      subsequence($state, $p:l3, $p:e3 - $p:l3 + 1)
-    else
-      p:match($input, $state[$p:e2], $set)
-  return
-  (
-    $match[1] * 1024 + $state[$p:lk],
-    subsequence($state, $p:lk + 1, $p:l3 - $p:lk - 1),
-    $match,
-    subsequence($state, $p:e3 + 1)
+    subsequence($state, $p:e2 + 1)
   )
 };
 
@@ -581,202 +526,6 @@ declare function p:reduce($state as item()+, $name as xs:string, $count as xs:in
 };
 
 (:~
- : Strip result from parser state, in order to avoid carrying it while
- : backtracking.
- :
- : @param $state the parser state after an alternative failed.
- : @return the updated parser state.
- :)
-declare function p:strip-result($state as item()+) as item()+
-{
-  subsequence($state, 1, $p:memo)
-};
-
-(:~
- : Restore parser state after unsuccessfully trying an alternative,
- : merging any memoization that was collected on the way.
- :
- : @param $backtrack the parser state before backtracking started.
- : @param $state the parser state after an alternative failed.
- : @return the updated parser state.
- :)
-declare function p:restore($backtrack as item()+,
-                           $state as item()+) as item()+
-{
-  subsequence($backtrack, 1, $p:memo - 1),
-  element memo{$state[$p:error]/@*, $state[$p:memo]/value}
-};
-
-(:~
- : Memoize the backtracking result that was computed at decision point
- : $i for input position $state[$p:e0].
- :
- : @param $backtrack the parser state before backtracking started.
- : @param $state the parser state after successfully trying an alternative.
- : @param $v the id of the successful alternative.
- : @param $i the decision point id.
- : @return the updated parser state.
- :)
-declare function p:memoize($backtrack as item()+,
-                           $state as item()+,
-                           $v as xs:integer,
-                           $i as xs:integer) as item()+
-{
-  $v,
-  subsequence($backtrack, $p:lk + 1, $p:memo - $p:lk - 1),
-  element memo
-  {
-    $state[$p:memo]/value,
-    element value {attribute key {$backtrack[$p:e0] * 2 + $i}, $v}
-  },
-  subsequence($backtrack, $p:memo + 1)
-};
-
-(:~
- : Retrieve memoized backtracking result for decision point $i
- : and input position $state[$p:e0] into $state[$p:lk].
- :
- : @param $state the parser state.
- : @param $i the decision point id.
- : @return the updated parser state.
- :)
-declare function p:memoized($state as item()+, $i as xs:integer) as item()+
-{
-  let $value := data($state[$p:memo]/value[@key = $state[$p:e0] * 2 + $i])
-  return
-  (
-    if ($value) then $value else 0,
-    subsequence($state, $p:lk + 1)
-  )
-};
-
-(:~
- : Parse the 1st loop of production emptyElementTag (zero or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:parse-emptyElementTag-1($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:lookahead1(4, $input, $state)           (: s | '/>' :)
-    return
-      if ($state[$p:l1] != 9) then                          (: s :)
-        $state
-      else
-        let $state := p:shift(9, $input, $state)            (: s :)
-        return p:parse-emptyElementTag-1($input, $state)
-};
-
-(:~
- : Try parsing the 1st loop of production emptyElementTag (zero or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-emptyElementTag-1($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:lookahead1(4, $input, $state)           (: s | '/>' :)
-    return
-      if ($state[$p:l1] != 9) then                          (: s :)
-        $state
-      else
-        let $state := p:shift(9, $input, $state)            (: s :)
-        return p:try-emptyElementTag-1($input, $state)
-};
-
-(:~
- : Parse emptyElementTag.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:parse-emptyElementTag($input as xs:string, $state as item()+) as item()+
-{
-  let $count := count($state)
-  let $state := p:shift(11, $input, $state)                 (: '<' :)
-  let $state := p:lookahead1(0, $input, $state)             (: name :)
-  let $state := p:shift(8, $input, $state)                  (: name :)
-  let $state := p:parse-attributeList($input, $state)
-  let $state := p:parse-emptyElementTag-1($input, $state)
-  let $state := p:shift(10, $input, $state)                 (: '/>' :)
-  return p:reduce($state, "emptyElementTag", $count)
-};
-
-(:~
- : Try parsing emptyElementTag.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-emptyElementTag($input as xs:string, $state as item()+) as item()+
-{
-  let $count := count($state)
-  let $state := p:shift(11, $input, $state)                 (: '<' :)
-  let $state := p:lookahead1(0, $input, $state)             (: name :)
-  let $state := p:shift(8, $input, $state)                  (: name :)
-  let $state := p:try-attributeList($input, $state)
-  let $state := p:try-emptyElementTag-1($input, $state)
-  let $state := p:shift(10, $input, $state)                 (: '/>' :)
-  return p:reduce($state, "emptyElementTag", $count)
-};
-
-(:~
- : Parse the 1st loop of production endTag (zero or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:parse-endTag-1($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:lookahead1(6, $input, $state)           (: s | '>' :)
-    return
-      if ($state[$p:l1] != 9) then                          (: s :)
-        $state
-      else
-        let $state := p:shift(9, $input, $state)            (: s :)
-        return p:parse-endTag-1($input, $state)
-};
-
-(:~
- : Try parsing the 1st loop of production endTag (zero or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-endTag-1($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:lookahead1(6, $input, $state)           (: s | '>' :)
-    return
-      if ($state[$p:l1] != 9) then                          (: s :)
-        $state
-      else
-        let $state := p:shift(9, $input, $state)            (: s :)
-        return p:try-endTag-1($input, $state)
-};
-
-(:~
  : Parse endTag.
  :
  : @param $input the input string.
@@ -786,30 +535,20 @@ declare function p:try-endTag-1($input as xs:string, $state as item()+) as item(
 declare function p:parse-endTag($input as xs:string, $state as item()+) as item()+
 {
   let $count := count($state)
-  let $state := p:lookahead1(1, $input, $state)             (: '</' :)
+  let $state := p:lookahead1(3, $input, $state)             (: '</' :)
   let $state := p:shift(12, $input, $state)                 (: '</' :)
-  let $state := p:lookahead1(0, $input, $state)             (: name :)
-  let $state := p:shift(8, $input, $state)                  (: name :)
-  let $state := p:parse-endTag-1($input, $state)
-  let $state := p:shift(14, $input, $state)                 (: '>' :)
-  return p:reduce($state, "endTag", $count)
-};
-
-(:~
- : Try parsing endTag.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-endTag($input as xs:string, $state as item()+) as item()+
-{
-  let $count := count($state)
-  let $state := p:lookahead1(1, $input, $state)             (: '</' :)
-  let $state := p:shift(12, $input, $state)                 (: '</' :)
-  let $state := p:lookahead1(0, $input, $state)             (: name :)
-  let $state := p:shift(8, $input, $state)                  (: name :)
-  let $state := p:try-endTag-1($input, $state)
+  let $state := p:lookahead1(2, $input, $state)             (: name :)
+  let $state := p:shift(7, $input, $state)                  (: name :)
+  let $state := p:lookahead1(8, $input, $state)             (: s | '>' :)
+  let $state :=
+    if ($state[$p:error]) then
+      $state
+    else if ($state[$p:l1] = 8) then                        (: s :)
+      let $state := p:shift(8, $input, $state)              (: s :)
+      return $state
+    else
+      $state
+  let $state := p:lookahead1(5, $input, $state)             (: '>' :)
   let $state := p:shift(14, $input, $state)                 (: '>' :)
   return p:reduce($state, "endTag", $count)
 };
@@ -827,7 +566,7 @@ declare function p:parse-content-1($input as xs:string, $state as item()+) as it
   if ($state[$p:error]) then
     $state
   else
-    let $state := p:lookahead1(12, $input, $state)          (: comment | charRef | dataChar | '<' | '</' :)
+    let $state := p:lookahead1(15, $input, $state)          (: comment | charRef | dataChar | '<' | '</' :)
     return
       if ($state[$p:l1] = 12) then                          (: '</' :)
         $state
@@ -836,54 +575,18 @@ declare function p:parse-content-1($input as xs:string, $state as item()+) as it
           if ($state[$p:l1] = 11) then                      (: '<' :)
             let $state := p:parse-element($input, $state)
             return $state
-          else if ($state[$p:l1] = 5) then                  (: comment :)
-            let $state := p:shift(5, $input, $state)        (: comment :)
+          else if ($state[$p:l1] = 4) then                  (: comment :)
+            let $state := p:shift(4, $input, $state)        (: comment :)
             return $state
-          else if ($state[$p:l1] = 7) then                  (: dataChar :)
-            let $state := p:shift(7, $input, $state)        (: dataChar :)
+          else if ($state[$p:l1] = 6) then                  (: dataChar :)
+            let $state := p:shift(6, $input, $state)        (: dataChar :)
             return $state
           else if ($state[$p:error]) then
             $state
           else
-            let $state := p:shift(6, $input, $state)        (: charRef :)
+            let $state := p:shift(5, $input, $state)        (: charRef :)
             return $state
         return p:parse-content-1($input, $state)
-};
-
-(:~
- : Try parsing the 1st loop of production content (zero or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-content-1($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:lookahead1(12, $input, $state)          (: comment | charRef | dataChar | '<' | '</' :)
-    return
-      if ($state[$p:l1] = 12) then                          (: '</' :)
-        $state
-      else
-        let $state :=
-          if ($state[$p:l1] = 11) then                      (: '<' :)
-            let $state := p:try-element($input, $state)
-            return $state
-          else if ($state[$p:l1] = 5) then                  (: comment :)
-            let $state := p:shift(5, $input, $state)        (: comment :)
-            return $state
-          else if ($state[$p:l1] = 7) then                  (: dataChar :)
-            let $state := p:shift(7, $input, $state)        (: dataChar :)
-            return $state
-          else if ($state[$p:error]) then
-            $state
-          else
-            let $state := p:shift(6, $input, $state)        (: charRef :)
-            return $state
-        return p:try-content-1($input, $state)
 };
 
 (:~
@@ -901,108 +604,6 @@ declare function p:parse-content($input as xs:string, $state as item()+) as item
 };
 
 (:~
- : Try parsing content.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-content($input as xs:string, $state as item()+) as item()+
-{
-  let $count := count($state)
-  let $state := p:try-content-1($input, $state)
-  return p:reduce($state, "content", $count)
-};
-
-(:~
- : Parse the 1st loop of production attribute (zero or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:parse-attribute-1($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:lookahead1(5, $input, $state)           (: s | '=' :)
-    return
-      if ($state[$p:l1] != 9) then                          (: s :)
-        $state
-      else
-        let $state := p:shift(9, $input, $state)            (: s :)
-        return p:parse-attribute-1($input, $state)
-};
-
-(:~
- : Try parsing the 1st loop of production attribute (zero or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-attribute-1($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:lookahead1(5, $input, $state)           (: s | '=' :)
-    return
-      if ($state[$p:l1] != 9) then                          (: s :)
-        $state
-      else
-        let $state := p:shift(9, $input, $state)            (: s :)
-        return p:try-attribute-1($input, $state)
-};
-
-(:~
- : Parse the 2nd loop of production attribute (zero or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:parse-attribute-2($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:lookahead1(2, $input, $state)           (: attributeValue | s :)
-    return
-      if ($state[$p:l1] != 9) then                          (: s :)
-        $state
-      else
-        let $state := p:shift(9, $input, $state)            (: s :)
-        return p:parse-attribute-2($input, $state)
-};
-
-(:~
- : Try parsing the 2nd loop of production attribute (zero or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-attribute-2($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:lookahead1(2, $input, $state)           (: attributeValue | s :)
-    return
-      if ($state[$p:l1] != 9) then                          (: s :)
-        $state
-      else
-        let $state := p:shift(9, $input, $state)            (: s :)
-        return p:try-attribute-2($input, $state)
-};
-
-(:~
  : Parse attribute.
  :
  : @param $input the input string.
@@ -1012,74 +613,31 @@ declare function p:try-attribute-2($input as xs:string, $state as item()+) as it
 declare function p:parse-attribute($input as xs:string, $state as item()+) as item()+
 {
   let $count := count($state)
-  let $state := p:shift(4, $input, $state)                  (: attributeName :)
-  let $state := p:parse-attribute-1($input, $state)
+  let $state := p:lookahead1(1, $input, $state)             (: attributeName :)
+  let $state := p:shift(3, $input, $state)                  (: attributeName :)
+  let $state := p:lookahead1(7, $input, $state)             (: s | '=' :)
+  let $state :=
+    if ($state[$p:error]) then
+      $state
+    else if ($state[$p:l1] = 8) then                        (: s :)
+      let $state := p:shift(8, $input, $state)              (: s :)
+      return $state
+    else
+      $state
+  let $state := p:lookahead1(4, $input, $state)             (: '=' :)
   let $state := p:shift(13, $input, $state)                 (: '=' :)
-  let $state := p:parse-attribute-2($input, $state)
-  let $state := p:shift(3, $input, $state)                  (: attributeValue :)
+  let $state := p:lookahead1(6, $input, $state)             (: attributeValue | s :)
+  let $state :=
+    if ($state[$p:error]) then
+      $state
+    else if ($state[$p:l1] = 8) then                        (: s :)
+      let $state := p:shift(8, $input, $state)              (: s :)
+      return $state
+    else
+      $state
+  let $state := p:lookahead1(0, $input, $state)             (: attributeValue :)
+  let $state := p:shift(2, $input, $state)                  (: attributeValue :)
   return p:reduce($state, "attribute", $count)
-};
-
-(:~
- : Try parsing attribute.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-attribute($input as xs:string, $state as item()+) as item()+
-{
-  let $count := count($state)
-  let $state := p:shift(4, $input, $state)                  (: attributeName :)
-  let $state := p:try-attribute-1($input, $state)
-  let $state := p:shift(13, $input, $state)                 (: '=' :)
-  let $state := p:try-attribute-2($input, $state)
-  let $state := p:shift(3, $input, $state)                  (: attributeValue :)
-  return p:reduce($state, "attribute", $count)
-};
-
-(:~
- : Parse the 2nd loop of production attributeList (one or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:parse-attributeList-2($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:shift(9, $input, $state)                (: s :)
-    let $state := p:lookahead1(3, $input, $state)           (: attributeName | s :)
-    return
-      if ($state[$p:l1] != 9) then                          (: s :)
-        $state
-      else
-        p:parse-attributeList-2($input, $state)
-};
-
-(:~
- : Try parsing the 2nd loop of production attributeList (one or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-attributeList-2($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:shift(9, $input, $state)                (: s :)
-    let $state := p:lookahead1(3, $input, $state)           (: attributeName | s :)
-    return
-      if ($state[$p:l1] != 9) then                          (: s :)
-        $state
-      else
-        p:try-attributeList-2($input, $state)
 };
 
 (:~
@@ -1095,105 +653,20 @@ declare function p:parse-attributeList-1($input as xs:string, $state as item()+)
   if ($state[$p:error]) then
     $state
   else
-    let $state := p:lookahead1(9, $input, $state)           (: s | '/>' | '>' :)
+    let $state := p:lookahead1(13, $input, $state)          (: s | '/>' | '>' :)
     let $state :=
-      if ($state[$p:l1] = 9) then                           (: s :)
-        let $state := p:lookahead2(11, $input, $state)      (: attributeName | s | '/>' | '>' :)
-        let $state :=
-          if ($state[$p:lk] = 297) then                     (: s s :)
-            let $state := p:lookahead3(11, $input, $state)  (: attributeName | s | '/>' | '>' :)
-            return $state
-          else
-            $state
+      if ($state[$p:l1] = 8) then                           (: s :)
+        let $state := p:lookahead2(10, $input, $state)      (: attributeName | '/>' | '>' :)
         return $state
       else
         ($state[$p:l1], subsequence($state, $p:lk + 1))
-    let $state :=
-      if ($state[$p:error]) then
-        $state
-      else if ($state[$p:lk] = 9513) then                   (: s s s :)
-        let $state := p:memoized($state, 1)
-        return
-          if ($state[$p:lk] != 0) then
-            $state
-          else
-            let $backtrack := $state
-            let $state := p:strip-result($state)
-            let $state := p:try-attributeList-2($input, $state)
-            let $state := p:try-attribute($input, $state)
-            return
-              if (not($state[$p:error])) then
-                p:memoize($backtrack, $state, -1, 1)
-              else
-                p:memoize($backtrack, $state, -2, 1)
-      else
-        $state
     return
-      if ($state[$p:lk] != -1
-      and $state[$p:lk] != 137                              (: s attributeName :)
-      and $state[$p:lk] != 4393) then                       (: s s attributeName :)
+      if ($state[$p:lk] != 104) then                        (: s attributeName :)
         $state
       else
-        let $state := p:parse-attributeList-2($input, $state)
+        let $state := p:shift(8, $input, $state)            (: s :)
         let $state := p:parse-attribute($input, $state)
         return p:parse-attributeList-1($input, $state)
-};
-
-(:~
- : Try parsing the 1st loop of production attributeList (zero or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-attributeList-1($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:lookahead1(9, $input, $state)           (: s | '/>' | '>' :)
-    let $state :=
-      if ($state[$p:l1] = 9) then                           (: s :)
-        let $state := p:lookahead2(11, $input, $state)      (: attributeName | s | '/>' | '>' :)
-        let $state :=
-          if ($state[$p:lk] = 297) then                     (: s s :)
-            let $state := p:lookahead3(11, $input, $state)  (: attributeName | s | '/>' | '>' :)
-            return $state
-          else
-            $state
-        return $state
-      else
-        ($state[$p:l1], subsequence($state, $p:lk + 1))
-    let $state :=
-      if ($state[$p:error]) then
-        $state
-      else if ($state[$p:lk] = 9513) then                   (: s s s :)
-        let $state := p:memoized($state, 1)
-        return
-          if ($state[$p:lk] != 0) then
-            $state
-          else
-            let $backtrack := $state
-            let $state := p:strip-result($state)
-            let $state := p:try-attributeList-2($input, $state)
-            let $state := p:try-attribute($input, $state)
-            return
-              if (not($state[$p:error])) then
-                p:memoize($backtrack, $state, -1, 1)
-              else
-                p:memoize($backtrack, $state, -2, 1)
-      else
-        $state
-    return
-      if ($state[$p:lk] != -1
-      and $state[$p:lk] != 137                              (: s attributeName :)
-      and $state[$p:lk] != 4393) then                       (: s s attributeName :)
-        $state
-      else
-        let $state := p:try-attributeList-2($input, $state)
-        let $state := p:try-attribute($input, $state)
-        return p:try-attributeList-1($input, $state)
 };
 
 (:~
@@ -1211,102 +684,6 @@ declare function p:parse-attributeList($input as xs:string, $state as item()+) a
 };
 
 (:~
- : Try parsing attributeList.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-attributeList($input as xs:string, $state as item()+) as item()+
-{
-  let $count := count($state)
-  let $state := p:try-attributeList-1($input, $state)
-  return p:reduce($state, "attributeList", $count)
-};
-
-(:~
- : Parse the 1st loop of production startTag (zero or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:parse-startTag-1($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:lookahead1(6, $input, $state)           (: s | '>' :)
-    return
-      if ($state[$p:l1] != 9) then                          (: s :)
-        $state
-      else
-        let $state := p:shift(9, $input, $state)            (: s :)
-        return p:parse-startTag-1($input, $state)
-};
-
-(:~
- : Try parsing the 1st loop of production startTag (zero or more). Use
- : tail recursion for iteratively updating the parser state.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-startTag-1($input as xs:string, $state as item()+) as item()+
-{
-  if ($state[$p:error]) then
-    $state
-  else
-    let $state := p:lookahead1(6, $input, $state)           (: s | '>' :)
-    return
-      if ($state[$p:l1] != 9) then                          (: s :)
-        $state
-      else
-        let $state := p:shift(9, $input, $state)            (: s :)
-        return p:try-startTag-1($input, $state)
-};
-
-(:~
- : Parse startTag.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:parse-startTag($input as xs:string, $state as item()+) as item()+
-{
-  let $count := count($state)
-  let $state := p:shift(11, $input, $state)                 (: '<' :)
-  let $state := p:lookahead1(0, $input, $state)             (: name :)
-  let $state := p:shift(8, $input, $state)                  (: name :)
-  let $state := p:parse-attributeList($input, $state)
-  let $state := p:parse-startTag-1($input, $state)
-  let $state := p:shift(14, $input, $state)                 (: '>' :)
-  return p:reduce($state, "startTag", $count)
-};
-
-(:~
- : Try parsing startTag.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-startTag($input as xs:string, $state as item()+) as item()+
-{
-  let $count := count($state)
-  let $state := p:shift(11, $input, $state)                 (: '<' :)
-  let $state := p:lookahead1(0, $input, $state)             (: name :)
-  let $state := p:shift(8, $input, $state)                  (: name :)
-  let $state := p:try-attributeList($input, $state)
-  let $state := p:try-startTag-1($input, $state)
-  let $state := p:shift(14, $input, $state)                 (: '>' :)
-  return p:reduce($state, "startTag", $count)
-};
-
-(:~
  : Parse element.
  :
  : @param $input the input string.
@@ -1316,108 +693,30 @@ declare function p:try-startTag($input as xs:string, $state as item()+) as item(
 declare function p:parse-element($input as xs:string, $state as item()+) as item()+
 {
   let $count := count($state)
-  let $state :=
-    if ($state[$p:l1] = 11) then                            (: '<' :)
-      let $state := p:lookahead2(0, $input, $state)         (: name :)
-      let $state :=
-        if ($state[$p:lk] = 267) then                       (: '<' name :)
-          let $state := p:lookahead3(9, $input, $state)     (: s | '/>' | '>' :)
-          return $state
-        else
-          $state
-      return $state
-    else
-      ($state[$p:l1], subsequence($state, $p:lk + 1))
+  let $state := p:shift(11, $input, $state)                 (: '<' :)
+  let $state := p:lookahead1(2, $input, $state)             (: name :)
+  let $state := p:shift(7, $input, $state)                  (: name :)
+  let $state := p:parse-attributeList($input, $state)
+  let $state := p:lookahead1(13, $input, $state)            (: s | '/>' | '>' :)
   let $state :=
     if ($state[$p:error]) then
       $state
-    else if ($state[$p:lk] = 9483) then                     (: '<' name s :)
-      let $state := p:memoized($state, 0)
-      return
-        if ($state[$p:lk] != 0) then
-          $state
-        else
-          let $backtrack := $state
-          let $state := p:strip-result($state)
-          let $state := p:try-startTag($input, $state)
-          let $state := p:try-content($input, $state)
-          let $state := p:try-endTag($input, $state)
-          return
-            if (not($state[$p:error])) then
-              p:memoize($backtrack, $state, -1, 0)
-            else
-              p:memoize($backtrack, $state, -2, 0)
+    else if ($state[$p:l1] = 8) then                        (: s :)
+      let $state := p:shift(8, $input, $state)              (: s :)
+      return $state
     else
       $state
+  let $state := p:lookahead1(9, $input, $state)             (: '/>' | '>' :)
   let $state :=
-    if ($state[$p:lk] = -1
-     or $state[$p:lk] = 14603) then                         (: '<' name '>' :)
-      let $state := p:parse-startTag($input, $state)
+    if ($state[$p:l1] = 14) then                            (: '>' :)
+      let $state := p:shift(14, $input, $state)             (: '>' :)
       let $state := p:parse-content($input, $state)
       let $state := p:parse-endTag($input, $state)
       return $state
     else if ($state[$p:error]) then
       $state
     else
-      let $state := p:parse-emptyElementTag($input, $state)
-      return $state
-  return p:reduce($state, "element", $count)
-};
-
-(:~
- : Try parsing element.
- :
- : @param $input the input string.
- : @param $state the parser state.
- : @return the updated parser state.
- :)
-declare function p:try-element($input as xs:string, $state as item()+) as item()+
-{
-  let $count := count($state)
-  let $state :=
-    if ($state[$p:l1] = 11) then                            (: '<' :)
-      let $state := p:lookahead2(0, $input, $state)         (: name :)
-      let $state :=
-        if ($state[$p:lk] = 267) then                       (: '<' name :)
-          let $state := p:lookahead3(9, $input, $state)     (: s | '/>' | '>' :)
-          return $state
-        else
-          $state
-      return $state
-    else
-      ($state[$p:l1], subsequence($state, $p:lk + 1))
-  let $state :=
-    if ($state[$p:error]) then
-      $state
-    else if ($state[$p:lk] = 9483) then                     (: '<' name s :)
-      let $state := p:memoized($state, 0)
-      return
-        if ($state[$p:lk] != 0) then
-          $state
-        else
-          let $backtrack := $state
-          let $state := p:strip-result($state)
-          let $state := p:try-startTag($input, $state)
-          let $state := p:try-content($input, $state)
-          let $state := p:try-endTag($input, $state)
-          return
-            if (not($state[$p:error])) then
-              p:memoize($backtrack, $state, -1, 0)
-            else
-              p:memoize($backtrack, $state, -2, 0)
-    else
-      $state
-  let $state :=
-    if ($state[$p:lk] = -1
-     or $state[$p:lk] = 14603) then                         (: '<' name '>' :)
-      let $state := p:try-startTag($input, $state)
-      let $state := p:try-content($input, $state)
-      let $state := p:try-endTag($input, $state)
-      return $state
-    else if ($state[$p:error]) then
-      $state
-    else
-      let $state := p:try-emptyElementTag($input, $state)
+      let $state := p:shift(10, $input, $state)             (: '/>' :)
       return $state
   return p:reduce($state, "element", $count)
 };
@@ -1435,19 +734,19 @@ declare function p:parse-document-1($input as xs:string, $state as item()+) as i
   if ($state[$p:error]) then
     $state
   else
-    let $state := p:lookahead1(8, $input, $state)           (: comment | s | '<' :)
+    let $state := p:lookahead1(12, $input, $state)          (: comment | s | '<' :)
     return
       if ($state[$p:l1] = 11) then                          (: '<' :)
         $state
       else
         let $state :=
-          if ($state[$p:l1] = 5) then                       (: comment :)
-            let $state := p:shift(5, $input, $state)        (: comment :)
+          if ($state[$p:l1] = 4) then                       (: comment :)
+            let $state := p:shift(4, $input, $state)        (: comment :)
             return $state
           else if ($state[$p:error]) then
             $state
           else
-            let $state := p:shift(9, $input, $state)        (: s :)
+            let $state := p:shift(8, $input, $state)        (: s :)
             return $state
         return p:parse-document-1($input, $state)
 };
@@ -1465,19 +764,19 @@ declare function p:parse-document-2($input as xs:string, $state as item()+) as i
   if ($state[$p:error]) then
     $state
   else
-    let $state := p:lookahead1(7, $input, $state)           (: END | comment | s :)
+    let $state := p:lookahead1(11, $input, $state)          (: comment | s | eof :)
     return
-      if ($state[$p:l1] = 1) then                           (: END :)
+      if ($state[$p:l1] = 9) then                           (: eof :)
         $state
       else
         let $state :=
-          if ($state[$p:l1] = 5) then                       (: comment :)
-            let $state := p:shift(5, $input, $state)        (: comment :)
+          if ($state[$p:l1] = 4) then                       (: comment :)
+            let $state := p:shift(4, $input, $state)        (: comment :)
             return $state
           else if ($state[$p:error]) then
             $state
           else
-            let $state := p:shift(9, $input, $state)        (: s :)
+            let $state := p:shift(8, $input, $state)        (: s :)
             return $state
         return p:parse-document-2($input, $state)
 };
@@ -1492,18 +791,19 @@ declare function p:parse-document-2($input as xs:string, $state as item()+) as i
 declare function p:parse-document($input as xs:string, $state as item()+) as item()+
 {
   let $count := count($state)
-  let $state := p:lookahead1(10, $input, $state)            (: byteOrderMark | comment | s | '<' :)
+  let $state := p:lookahead1(14, $input, $state)            (: byteOrderMark | comment | s | '<' :)
   let $state :=
     if ($state[$p:error]) then
       $state
-    else if ($state[$p:l1] = 2) then                        (: byteOrderMark :)
-      let $state := p:shift(2, $input, $state)              (: byteOrderMark :)
+    else if ($state[$p:l1] = 1) then                        (: byteOrderMark :)
+      let $state := p:shift(1, $input, $state)              (: byteOrderMark :)
       return $state
     else
       $state
   let $state := p:parse-document-1($input, $state)
   let $state := p:parse-element($input, $state)
   let $state := p:parse-document-2($input, $state)
+  let $state := p:shift(9, $input, $state)                  (: eof :)
   return p:reduce($state, "document", $count)
 };
 
@@ -1515,7 +815,7 @@ declare function p:parse-document($input as xs:string, $state as item()+) as ite
  :)
 declare function p:parse-document($s as xs:string) as item()*
 {
-  let $state := p:parse-document($s, (0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, false(), <memo/>))
+  let $state := p:parse-document($s, (0, 1, 1, 0, 1, 0, 0, 0, 0, false()))
   let $error := $state[$p:error]
   return
     if ($error) then

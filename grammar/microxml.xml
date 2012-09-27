@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This file was generated on Mon Sep 24, 2012 10:35 (UTC+02) by REx v5.16 which is Copyright (c) 1979-2012 by Gunther Rademacher <grd@gmx.net> -->
-<!-- REx command line: microxml.ebnf -tree -xml -backtrack -->
+<!-- This file was generated on Thu Sep 27, 2012 11:24 (UTC+02) by REx v5.16 which is Copyright (c) 1979-2012 by Gunther Rademacher <grd@gmx.net> -->
+<!-- REx command line: microxml.ebnf -ll 2 -tree -xml -->
 <g:grammar xmlns:g="http://www.w3.org/2001/03/XPath/grammar">
   <g:production name="document">
     <g:optional>
@@ -14,38 +14,36 @@
     </g:zeroOrMore>
     <g:ref queued="1" name="element"/>
     <g:zeroOrMore>
-      <g:choice ifnot="END" queued="1">
+      <g:choice ifnot="eof" queued="1">
         <g:ref if="comment" queued="1" name="comment"/>
         <g:ref default="" queued="1" name="s"/>
       </g:choice>
     </g:zeroOrMore>
+    <g:ref queued="1" name="eof"/>
   </g:production>
   <g:production queued="1" name="element">
-    <g:choice LL1-conflict="&lt;" LL2-conflict="&lt;~name" LL3-conflict="&lt;~name~s" queued="1">
-      <g:sequence if="&lt;~name~&gt;" queued="1+">
-        <g:ref queued="1+" name="startTag"/>
+    <g:string queued="1">&lt;</g:string>
+    <g:ref name="name"/>
+    <g:ref name="attributeList"/>
+    <g:optional>
+      <g:ref if="s" queued="1" name="s"/>
+    </g:optional>
+    <g:choice>
+      <g:sequence if="&gt;" queued="1">
+        <g:string queued="1">&gt;</g:string>
         <g:ref name="content"/>
         <g:ref name="endTag"/>
       </g:sequence>
-      <g:ref default="" queued="1+" name="emptyElementTag"/>
+      <g:string default="" queued="1">/&gt;</g:string>
     </g:choice>
-  </g:production>
-  <g:production queued="1+" name="startTag">
-    <g:string queued="1+">&lt;</g:string>
-    <g:ref name="name"/>
-    <g:ref name="attributeList"/>
-    <g:zeroOrMore>
-      <g:ref if="s" queued="1" name="s"/>
-    </g:zeroOrMore>
-    <g:string queued="1">&gt;</g:string>
   </g:production>
   <g:production name="endTag">
     <g:string>&lt;/</g:string>
     <g:ref name="name"/>
-    <g:zeroOrMore>
+    <g:optional>
       <g:ref if="s" queued="1" name="s"/>
-    </g:zeroOrMore>
-    <g:string queued="1">&gt;</g:string>
+    </g:optional>
+    <g:string>&gt;</g:string>
   </g:production>
   <g:production name="content">
     <g:zeroOrMore>
@@ -57,33 +55,22 @@
       </g:choice>
     </g:zeroOrMore>
   </g:production>
-  <g:production queued="1+" name="emptyElementTag">
-    <g:string queued="1+">&lt;</g:string>
-    <g:ref name="name"/>
-    <g:ref name="attributeList"/>
-    <g:zeroOrMore>
-      <g:ref if="s" queued="1" name="s"/>
-    </g:zeroOrMore>
-    <g:string queued="1">/&gt;</g:string>
-  </g:production>
   <g:production name="attributeList">
-    <g:zeroOrMore LL1-conflict="s" LL2-conflict="s~s" LL3-conflict="s~s~s">
-      <g:oneOrMore if="s~attributeName s~s~attributeName">
-        <g:ref if="s" queued="1+" name="s"/>
-      </g:oneOrMore>
-      <g:ref queued="1" name="attribute"/>
+    <g:zeroOrMore LL1-conflict="s">
+      <g:ref if="s~attributeName" queued="1+" name="s"/>
+      <g:ref name="attribute"/>
     </g:zeroOrMore>
   </g:production>
-  <g:production queued="1" name="attribute">
-    <g:ref queued="1" name="attributeName"/>
-    <g:zeroOrMore>
+  <g:production name="attribute">
+    <g:ref name="attributeName"/>
+    <g:optional>
       <g:ref if="s" queued="1" name="s"/>
-    </g:zeroOrMore>
-    <g:string queued="1">=</g:string>
-    <g:zeroOrMore>
+    </g:optional>
+    <g:string>=</g:string>
+    <g:optional>
       <g:ref if="s" queued="1" name="s"/>
-    </g:zeroOrMore>
-    <g:ref queued="1" name="attributeValue"/>
+    </g:optional>
+    <g:ref name="attributeValue"/>
   </g:production>
   <?TOKENS?>
   <g:production name="byteOrderMark">
@@ -267,7 +254,7 @@
   </g:production>
   <g:production name="char">
     <g:choice>
-      <g:ref name="s"/>
+      <g:ref name="space"/>
       <g:subtract>
         <g:charClass>
           <g:charCodeRange minValue="0" maxValue="10FFFF"/>
@@ -276,12 +263,17 @@
       </g:subtract>
     </g:choice>
   </g:production>
-  <g:production name="s">
+  <g:production name="space">
     <g:charClass>
       <g:charCode value="9"/>
       <g:charCode value="A"/>
       <g:charCode value="20"/>
     </g:charClass>
+  </g:production>
+  <g:production name="s">
+    <g:oneOrMore>
+      <g:ref name="space"/>
+    </g:oneOrMore>
   </g:production>
   <g:production name="forbiddenCodePoint">
     <g:choice>
@@ -292,12 +284,8 @@
   </g:production>
   <g:production name="controlCodePoint">
     <g:charClass>
-      <g:charCodeRange minValue="0" maxValue="1"/>
-      <g:char>F</g:char>
-      <g:charCode value="7"/>
-      <g:charRange minChar="F" maxChar="#"/>
-      <g:char>9</g:char>
-      <g:char>F</g:char>
+      <g:charCodeRange minValue="0" maxValue="1F"/>
+      <g:charCodeRange minValue="7F" maxValue="9F"/>
     </g:charClass>
   </g:production>
   <g:production name="surrogateCodePoint">
@@ -326,5 +314,8 @@
       <g:charCodeRange minValue="FFFFE" maxValue="FFFFF"/>
       <g:charCodeRange minValue="10FFFE" maxValue="10FFFF"/>
     </g:charClass>
+  </g:production>
+  <g:production name="eof">
+    <g:endOfFile/>
   </g:production>
 </g:grammar>
